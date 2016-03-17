@@ -1,5 +1,6 @@
 # Goddess
-# 这其实是一个相册的实例程序（美女不重要）
+# 这其实是一个相册的示例程序（美女不重要）
+一个OC版的看图程序 
 
 模仿系统相册联系的时候顺便搞出来的. 数据来自 [http://gank.io/](http://gank.io/) by [@daimajia](https://github.com/daimajia).
 
