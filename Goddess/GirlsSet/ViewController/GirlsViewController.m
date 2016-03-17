@@ -91,7 +91,7 @@ static NSString * const XMGPhotoId = @"photo";
         
         [_originCollectionView setDelegate:self];
         [_originCollectionView setDataSource:self];
-        
+        [_originCollectionView setBounces:NO];
         [_originCollectionView setAlwaysBounceHorizontal:NO];
         [_originCollectionView setShowsVerticalScrollIndicator:NO];
         [_originCollectionView setShowsHorizontalScrollIndicator:NO];
