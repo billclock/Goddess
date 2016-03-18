@@ -21,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="-196" y="237"/>
         </scene>
-        <!--Girls View Controller-->
+        <!--Main Content Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GirlsViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainContentController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -39,7 +39,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="723" y="253"/>
+            <point key="canvasLocation" x="373" y="237"/>
         </scene>
     </scenes>
 </document>

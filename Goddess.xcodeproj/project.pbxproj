@@ -21,6 +21,8 @@
 		D370E30B1C9A84E2005B4FB8 /* NSString+Handle.m in Sources */ = {isa = PBXBuildFile; fileRef = D370E3091C9A84E2005B4FB8 /* NSString+Handle.m */; };
 		D370E30E1C9A858C005B4FB8 /* FuliModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D370E30D1C9A858C005B4FB8 /* FuliModel.m */; };
 		D370E3111C9A8A10005B4FB8 /* PhotoBrowerBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D370E3101C9A8A10005B4FB8 /* PhotoBrowerBaseCell.m */; };
+		D38ECA691C9BF76600CBAF3F /* MainContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38ECA681C9BF76600CBAF3F /* MainContentController.m */; };
+		D38ECA6C1C9BF84F00CBAF3F /* TopTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D38ECA6B1C9BF84F00CBAF3F /* TopTabBarView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,10 @@
 		D370E30D1C9A858C005B4FB8 /* FuliModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuliModel.m; sourceTree = "<group>"; };
 		D370E30F1C9A8A10005B4FB8 /* PhotoBrowerBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBrowerBaseCell.h; sourceTree = "<group>"; };
 		D370E3101C9A8A10005B4FB8 /* PhotoBrowerBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowerBaseCell.m; sourceTree = "<group>"; };
+		D38ECA671C9BF76600CBAF3F /* MainContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainContentController.h; sourceTree = "<group>"; };
+		D38ECA681C9BF76600CBAF3F /* MainContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainContentController.m; sourceTree = "<group>"; };
+		D38ECA6A1C9BF84F00CBAF3F /* TopTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTabBarView.h; sourceTree = "<group>"; };
+		D38ECA6B1C9BF84F00CBAF3F /* TopTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTabBarView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +115,10 @@
 				D370E2D71C9A7710005B4FB8 /* AppDelegate.m */,
 				D370E3041C9A84C9005B4FB8 /* Tools */,
 				D370E2FD1C9A7C9C005B4FB8 /* Common */,
+				D38ECA631C9BF74100CBAF3F /* MainContent */,
 				D370E2EE1C9A7C4D005B4FB8 /* GirlsSet */,
-				D370E2DC1C9A7710005B4FB8 /* Main.storyboard */,
 				D370E2DF1C9A7710005B4FB8 /* Assets.xcassets */,
+				D370E2DC1C9A7710005B4FB8 /* Main.storyboard */,
 				D370E2E11C9A7710005B4FB8 /* LaunchScreen.storyboard */,
 				D370E2E41C9A7710005B4FB8 /* Info.plist */,
 				D370E2EA1C9A79AD005B4FB8 /* PrefixHeader.pch */,
@@ -214,6 +221,41 @@
 				D370E3091C9A84E2005B4FB8 /* NSString+Handle.m */,
 			);
 			path = jl_JsonModel;
+			sourceTree = "<group>";
+		};
+		D38ECA631C9BF74100CBAF3F /* MainContent */ = {
+			isa = PBXGroup;
+			children = (
+				D38ECA641C9BF74100CBAF3F /* Models */,
+				D38ECA651C9BF74100CBAF3F /* ViewController */,
+				D38ECA661C9BF74100CBAF3F /* Views */,
+			);
+			path = MainContent;
+			sourceTree = "<group>";
+		};
+		D38ECA641C9BF74100CBAF3F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D38ECA651C9BF74100CBAF3F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D38ECA671C9BF76600CBAF3F /* MainContentController.h */,
+				D38ECA681C9BF76600CBAF3F /* MainContentController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D38ECA661C9BF74100CBAF3F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D38ECA6A1C9BF84F00CBAF3F /* TopTabBarView.h */,
+				D38ECA6B1C9BF84F00CBAF3F /* TopTabBarView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,8 +385,10 @@
 				D370E3031C9A7D05005B4FB8 /* HttpProcessEngine.m in Sources */,
 				D370E30E1C9A858C005B4FB8 /* FuliModel.m in Sources */,
 				D370E30B1C9A84E2005B4FB8 /* NSString+Handle.m in Sources */,
+				D38ECA691C9BF76600CBAF3F /* MainContentController.m in Sources */,
 				D370E2F41C9A7C6A005B4FB8 /* GirlsViewController.m in Sources */,
 				D370E2D81C9A7710005B4FB8 /* AppDelegate.m in Sources */,
+				D38ECA6C1C9BF84F00CBAF3F /* TopTabBarView.m in Sources */,
 				D370E2D51C9A7710005B4FB8 /* main.m in Sources */,
 				D370E3111C9A8A10005B4FB8 /* PhotoBrowerBaseCell.m in Sources */,
 				D370E2FA1C9A7C82005B4FB8 /* PhotoBrowerThumbCell.m in Sources */,
