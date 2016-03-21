@@ -62,7 +62,7 @@ static NSString * const XMGPhotoId = @"photo";
 {
     if (!_collectionView) {
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.thumbLayout];
-        _collectionView.contentInset = UIEdgeInsetsMake(64+ 5, 0, 0, 0);
+        _collectionView.contentInset = UIEdgeInsetsMake( 5, 0, 0, 0);
         [_collectionView setDelegate:self];
         [_collectionView setDataSource:self];
         [_collectionView setAlwaysBounceVertical:YES];

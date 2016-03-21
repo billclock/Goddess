@@ -18,4 +18,5 @@
 #import <UIImageView+AFNetworking.h>
 #import <MJRefresh/MJRefresh.h>
 #import <SVProgressHUD.h>
+#import <Masonry.h>
 #endif /* PrefixHeader_pch */
