@@ -1,5 +1,5 @@
 # Goddess
-一个看妹纸与开发资讯的Android APP，新手向大神学习的练手项目.
+一个看妹纸与开发资讯的iOS APP，新手向大神学习的练手项目.
 
 包含了模仿系统相册练习的时候顺便搞出来的相册效果. 数据来自 [http://gank.io/](http://gank.io/) by [@daimajia](https://github.com/daimajia).
 
