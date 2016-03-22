@@ -146,14 +146,14 @@
             [resultString appendFormat:@"%@\n", returnValue];
         }
     }
-    NSLog(@"%@", resultString);
+//    NSLog(@"%@", resultString);
     
 }
 - (SEL) creatSetterWithPropertyName: (NSString *) propertyName{
     
     //1.首字母大写
     propertyName = propertyName.myuppercaseString;
-    NSLog(@"%@",propertyName);
+//    NSLog(@"%@",propertyName);
     //2.拼接上set关键字
     propertyName = [NSString stringWithFormat:@"set%@:", propertyName];
     

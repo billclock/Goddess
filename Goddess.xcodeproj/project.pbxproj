@@ -27,6 +27,8 @@
 		D39DE5FC1C9FE96A00013F1C /* GanhuoNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D39DE5FA1C9FE96A00013F1C /* GanhuoNormalCell.m */; };
 		D39DE5FD1C9FE96A00013F1C /* GanhuoNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D39DE5FB1C9FE96A00013F1C /* GanhuoNormalCell.xib */; };
 		D39DE6001C9FEADC00013F1C /* GanhuoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D39DE5FF1C9FEADC00013F1C /* GanhuoModel.m */; };
+		D39DE6031CA0EEA000013F1C /* UIViewController+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = D39DE6021CA0EEA000013F1C /* UIViewController+Attributes.m */; };
+		D39DE60A1CA0FD3B00013F1C /* GHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39DE6091CA0FD3B00013F1C /* GHWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,10 @@
 		D39DE5FB1C9FE96A00013F1C /* GanhuoNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GanhuoNormalCell.xib; sourceTree = "<group>"; };
 		D39DE5FE1C9FEADC00013F1C /* GanhuoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GanhuoModel.h; sourceTree = "<group>"; };
 		D39DE5FF1C9FEADC00013F1C /* GanhuoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GanhuoModel.m; sourceTree = "<group>"; };
+		D39DE6011CA0EEA000013F1C /* UIViewController+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Attributes.h"; sourceTree = "<group>"; };
+		D39DE6021CA0EEA000013F1C /* UIViewController+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Attributes.m"; sourceTree = "<group>"; };
+		D39DE6081CA0FD3B00013F1C /* GHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHWebViewController.h; sourceTree = "<group>"; };
+		D39DE6091CA0FD3B00013F1C /* GHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,7 @@
 				D370E3041C9A84C9005B4FB8 /* Tools */,
 				D370E2FD1C9A7C9C005B4FB8 /* Common */,
 				D38ECA631C9BF74100CBAF3F /* MainContent */,
+				D39DE6041CA0FC3900013F1C /* GHWebController */,
 				D39DE5F21C9FE76E00013F1C /* Ganhuo */,
 				D370E2EE1C9A7C4D005B4FB8 /* GirlsSet */,
 				D370E2DF1C9A7710005B4FB8 /* Assets.xcassets */,
@@ -200,6 +207,8 @@
 		D370E2FE1C9A7CC8005B4FB8 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				D39DE6011CA0EEA000013F1C /* UIViewController+Attributes.h */,
+				D39DE6021CA0EEA000013F1C /* UIViewController+Attributes.m */,
 			);
 			name = Category;
 			path = Common/Category;
@@ -304,6 +313,39 @@
 			children = (
 				D39DE5F61C9FE88C00013F1C /* GanhuoController.h */,
 				D39DE5F71C9FE88C00013F1C /* GanhuoController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D39DE6041CA0FC3900013F1C /* GHWebController */ = {
+			isa = PBXGroup;
+			children = (
+				D39DE6051CA0FC3900013F1C /* Model */,
+				D39DE6061CA0FC3900013F1C /* VIew */,
+				D39DE6071CA0FC3900013F1C /* ViewController */,
+			);
+			path = GHWebController;
+			sourceTree = "<group>";
+		};
+		D39DE6051CA0FC3900013F1C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D39DE6061CA0FC3900013F1C /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		D39DE6071CA0FC3900013F1C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D39DE6081CA0FD3B00013F1C /* GHWebViewController.h */,
+				D39DE6091CA0FD3B00013F1C /* GHWebViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -438,10 +480,12 @@
 				D39DE5FC1C9FE96A00013F1C /* GanhuoNormalCell.m in Sources */,
 				D370E30B1C9A84E2005B4FB8 /* NSString+Handle.m in Sources */,
 				D39DE6001C9FEADC00013F1C /* GanhuoModel.m in Sources */,
+				D39DE6031CA0EEA000013F1C /* UIViewController+Attributes.m in Sources */,
 				D38ECA691C9BF76600CBAF3F /* MainContentController.m in Sources */,
 				D39DE5F81C9FE88C00013F1C /* GanhuoController.m in Sources */,
 				D370E2F41C9A7C6A005B4FB8 /* GirlsViewController.m in Sources */,
 				D370E2D81C9A7710005B4FB8 /* AppDelegate.m in Sources */,
+				D39DE60A1CA0FD3B00013F1C /* GHWebViewController.m in Sources */,
 				D38ECA6C1C9BF84F00CBAF3F /* TopTabBarView.m in Sources */,
 				D370E2D51C9A7710005B4FB8 /* main.m in Sources */,
 				D370E3111C9A8A10005B4FB8 /* PhotoBrowerBaseCell.m in Sources */,

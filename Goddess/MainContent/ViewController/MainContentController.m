@@ -7,6 +7,7 @@
 //
 
 #import "MainContentController.h"
+#import "UIViewController+Attributes.h"
 #import "TopTabBarView.h"
 @interface MainContentController ()<TopTabBarViewDelegate>
 @property (nonatomic,strong) TopTabBarView * tabBar;
@@ -22,8 +23,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"GANK.IO";
     self.configArray = @[@{@"class":@"GanhuoController",
-                                @"name":@"all"},
-                              @{@"class":@"GanhuoController",
                                 @"name":@"iOS"},
                               @{@"class":@"GanhuoController",
                                 @"name":@"Android"},
@@ -68,7 +67,7 @@
 - (TopTabBarView *)tabBar
 {
     if (!_tabBar) {
-        _tabBar = [[TopTabBarView alloc] initWithItems:@"干货",@"iOS",@"Android",@"福利",@"休息视频",@"拓展资源",@"前端", nil];
+        _tabBar = [[TopTabBarView alloc] initWithItems:@"iOS",@"Android",@"福利",@"休息视频",@"拓展资源",@"前端", nil];
         _tabBar.delegate = self;
     }
     return _tabBar;
@@ -78,12 +77,14 @@
     if (!_scrollContentView) {
         _scrollContentView = [[UIScrollView alloc]init];
         _scrollContentView.scrollEnabled = NO;
+        _scrollContentView.autoresizesSubviews = NO;
         for (int i = 0; i < self.configArray.count; i++) {
             NSDictionary * configItem = self.configArray[i];
             NSString * className = configItem[@"class"];
             Class vClass = NSClassFromString(className);
             UIViewController * vc = [[vClass alloc]init];
-            vc.view.frame = CGRectMake(i * ScreenW, 0, ScreenW, ScreenH - 110);
+            vc.attributes = configItem;
+            vc.view.frame = CGRectMake(i * ScreenW, 0, ScreenW, ScreenH - 90);
             [self addChildViewController:vc];
             [self.scrollContentView addSubview:vc.view];
         }

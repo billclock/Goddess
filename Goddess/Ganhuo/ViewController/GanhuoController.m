@@ -8,6 +8,8 @@
 
 #import "GanhuoController.h"
 #import "GanhuoModel.h"
+#import "GanhuoNormalCell.h"
+#import "GHWebViewController.h"
 
 @interface GanhuoController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSMutableArray * dataSource;
@@ -43,7 +45,8 @@
         _tableView = [[UITableView alloc]init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [_tableView registerNib:[UINib nibWithNibName:@"GanhuoNormalCell" bundle:nil] forCellReuseIdentifier:@"GanhuoNormalCell"];
         _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getData)];
     }
     return _tableView;
@@ -58,7 +61,6 @@
 #pragma mark -- TableView delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GanhuoModel * item = self.dataSource[indexPath.row];
     return 100.0;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -71,20 +73,23 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    GanhuoModel * item = self.dataSource[indexPath.row];
+    GHWebViewController * gwc = [[GHWebViewController alloc]initWithURLToLoad:[NSURL URLWithString:item.url]];
+    [self.parentViewController.navigationController pushViewController:gwc animated:YES];
 }
 #pragma mark -- TableView datasource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    GanhuoNormalCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GanhuoNormalCell" forIndexPath:indexPath];
     GanhuoModel * item = self.dataSource[indexPath.row];
-    cell.textLabel.text = item.desc;
+    cell.titleLabel.text = item.desc;
+    cell.nickNameLabel.text = item.who;
     return cell;
 }
 #pragma mark - NetWork
 - (void)getData{
     NSInteger num = 21;
-    NSString * categ = @"all";
+    NSString * categ = [self.attributes[@"name"] stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLHostAllowedCharacterSet];
     NSString * url = [NSString stringWithFormat:@"http://gank.io/api/data/%@/%zd/%zd",categ,num,(self.page + 1)];
     if (!self.page) {
 

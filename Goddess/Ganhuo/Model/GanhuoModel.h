@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface GanhuoModel : NSObject
-@property (nonatomic,strong) NSString *desc;
+@property (nonatomic,strong) NSString * desc;
+@property (nonatomic,strong) NSString * who;
+@property (nonatomic,strong) NSString * url;
 @end
