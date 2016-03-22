@@ -11,7 +11,7 @@
 #import "PhotoBrowerOriginCell.h"
 #import "FuliModel.h"
 
-@interface GirlsViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface GirlsViewController ()<UICollectionViewDataSource, UICollectionViewDelegate,PhotoBrowerOriginCellDelegate>
 @property (nonatomic,strong) UICollectionView * collectionView;
 @property (nonatomic,strong) UICollectionView * originCollectionView;
 @property (nonatomic,strong) NSMutableArray * dataSource;
@@ -38,11 +38,12 @@ static NSString * const XMGPhotoId = @"photo";
     
     self.page = 0;
     
-    self.collectionView.frame = self.view.frame;
+    UIWindow * window = [UIApplication sharedApplication].keyWindow;
+    
     [self.view addSubview:self.collectionView];
-    [self.view addSubview:self.backView];
-    [self.view addSubview:self.originCollectionView];
-    [self.view addSubview:self.imageView];
+    [window addSubview:self.backView];
+    [window addSubview:self.originCollectionView];
+    [window addSubview:self.imageView];
     self.originCollectionView.hidden = YES;
     self.originCollectionView.frame = CGRectMake(0, 0, ScreenW, ScreenH);
     
@@ -50,12 +51,21 @@ static NSString * const XMGPhotoId = @"photo";
     UIBarButtonItem * backBar = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(backClick)];
     self.navigationItem.leftBarButtonItem = backBar;
     
+    [self addConstraints];
+    
     [self getData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)addConstraints
+{
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 #pragma mark - getter
 - (UICollectionView *)collectionView
@@ -97,8 +107,9 @@ static NSString * const XMGPhotoId = @"photo";
         [_originCollectionView setShowsHorizontalScrollIndicator:NO];
         [_originCollectionView setScrollEnabled:YES];
         [_originCollectionView setPagingEnabled:YES];
-        [_originCollectionView setBackgroundColor:[UIColor clearColor]];
+        [_originCollectionView setBackgroundColor:[UIColor lightGrayColor]];
         [_originCollectionView registerClass:[PhotoBrowerOriginCell class] forCellWithReuseIdentifier:@"PhotoBrowerOriginCell"];
+//        [_originCollectionView registerClass:[PhotoBrowerThumbCell class] forCellWithReuseIdentifier:@"PhotoBrowerOriginCell"];
     }
     return _originCollectionView;
 }
@@ -178,11 +189,13 @@ static NSString * const XMGPhotoId = @"photo";
         }
         [cell.imageView setImageWithURL:url];
         [(PhotoBrowerOriginCell*)cell reuse];
+        [(PhotoBrowerOriginCell*)cell setDelegate:self];
         return cell;
     }
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+
     [self.originCollectionView reloadData];
     [self imageWillAppearWithIndex:indexPath];
 }
@@ -193,7 +206,7 @@ static NSString * const XMGPhotoId = @"photo";
     if (cell.imageView.image == nil) {
         return;
     }
-    CGRect rect = [self.collectionView convertRect:cell.frame toView:self.view];
+    CGRect rect = [self.collectionView convertRect:cell.frame toView:[UIApplication sharedApplication].keyWindow];
     self.imageView.image = cell.imageView.image;
     self.imageView.frame = rect;
     self.imageView.hidden = NO;
@@ -212,7 +225,7 @@ static NSString * const XMGPhotoId = @"photo";
 - (void)imageWillDisappear:(NSIndexPath*)indexPath
 {
     PhotoBrowerBaseCell * cell = (PhotoBrowerBaseCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-    CGRect rect = [self.collectionView convertRect:cell.frame toView:self.view];
+    CGRect rect = [self.collectionView convertRect:cell.frame toView:[UIApplication sharedApplication].keyWindow];
     self.imageView.image = cell.imageView.image;
     self.imageView.frame = CGRectMake(0, (ScreenH - ScreenW * self.imageView.image.size.height / self.imageView.image.size.width ) / 2, ScreenW, ScreenW * self.imageView.image.size.height / self.imageView.image.size.width );
     self.imageView.hidden = NO;
@@ -229,6 +242,11 @@ static NSString * const XMGPhotoId = @"photo";
         self.backView.alpha = 0.0;
         
     }];
+}
+#pragma mark - PhotoBrowerOriginCellDelegate
+- (void)imageDidClick:(PhotoBrowerOriginCell *)cell
+{
+    [self imageWillDisappear:self.originCollectionView.indexPathsForVisibleItems.lastObject];
 }
 #pragma mark - private
 - (void)backClick{
@@ -262,6 +280,5 @@ static NSString * const XMGPhotoId = @"photo";
         }
     } failedJsonRequestBlocks:^(NSURLSessionDataTask *task, NSError *error) {
     }];
-    
 }
 @end

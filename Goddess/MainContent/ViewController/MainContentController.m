@@ -83,9 +83,10 @@
             NSString * className = configItem[@"class"];
             Class vClass = NSClassFromString(className);
             UIViewController * vc = [[vClass alloc]init];
+            [self addChildViewController:vc];
             vc.attributes = configItem;
             vc.view.frame = CGRectMake(i * ScreenW, 0, ScreenW, ScreenH - 90);
-            [self addChildViewController:vc];
+            
             [self.scrollContentView addSubview:vc.view];
         }
         _scrollContentView.contentSize = CGSizeMake(ScreenW * self.configArray.count, 0);

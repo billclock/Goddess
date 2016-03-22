@@ -7,7 +7,15 @@
 //
 
 #import "PhotoBrowerBaseCell.h"
+@protocol PhotoBrowerOriginCellDelegate;
 
 @interface PhotoBrowerOriginCell : PhotoBrowerBaseCell
 - (void)reuse;
+@property (nonatomic,weak) id<PhotoBrowerOriginCellDelegate> delegate;
+@end
+
+@protocol PhotoBrowerOriginCellDelegate <NSObject>
+
+- (void)imageDidClick:(PhotoBrowerOriginCell *)cell;
+
 @end
